@@ -4,7 +4,6 @@ BiocManager::install("limma")
 
 install.packages("pheatmap")
 
-
 library(limma)
 library(pheatmap)
 library(reshape2)
