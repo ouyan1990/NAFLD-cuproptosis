@@ -1,5 +1,3 @@
-
-#引用包
 library(clusterProfiler)
 library(org.Hs.eg.db)
 library(enrichplot)
@@ -12,7 +10,6 @@ library(ComplexHeatmap)
 pvalueFilter=0.05    
 qvalueFilter=1    
 
-#定义颜色
 colorSel="qvalue"
 if(qvalueFilter>0.05){
 	colorSel="pvalue"
