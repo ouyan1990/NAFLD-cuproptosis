@@ -3,7 +3,6 @@ install.packages("randomForest")
 library(randomForest)
 set.seed(123)
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\13.RF")     
 data=read.table("diffGeneExp.txt"  , header=T, sep="\t", check.names=F, row.names=1)
 data=t(data)
 group=gsub("(.*)\\_(.*)", "\\2", row.names(data))
