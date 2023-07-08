@@ -10,9 +10,6 @@ library(pheatmap)
 library(reshape2)
 library(ggpubr)
 
-
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\08.CRGs_diff")   
-
 #Read the presentation data file
 rt=read.table("CRGexp.txt" , header=T, sep="\t", check.names=F)
 rt=as.matrix(rt)
