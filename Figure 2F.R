@@ -6,7 +6,6 @@ library(circlize)
 
 #Read input file
 data=read.table("diffGeneExp.txt", header=T, sep="\t", check.names=F, row.names=1)
-
 #removing control sample
 group=gsub("(.*)\\_(.*)", "\\2", colnames(data))
 data=data[,group=="Treat",drop=F]
