@@ -12,8 +12,6 @@ library(reshape2)
 library(tidyverse)
 library(ggplot2)
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\25. ssGSEA\\25.3 ssGSEA immuneCor")     
-
 #Read the immune cell score file
 immune=read.table("ssGSEA.result.txt", header=T, sep="\t", check.names=F, row.names=1)
 immune=t(immune)
@@ -53,7 +51,7 @@ ggplot(outTab, aes(Gene, Immune)) +
 	geom_tile(aes(fill = cor), colour = "grey", size = 1)+
 	scale_fill_gradient2(low = "#02C9AF", mid = "white", high = "#E41A1C") + 
 	geom_text(aes(label=text),col ="black",size = 3) +
-	theme_minimal() +    #È¥µô±³¾°
+	theme_minimal() +    #ÃˆÂ¥ÂµÃ´Â±Â³Â¾Â°
 	theme(axis.title.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(),
 	      axis.text.x = element_text(angle = 45, hjust = 1, size = 10, face = "bold"),  
 	      axis.text.y = element_text(size = 10, face = "bold")) +       
