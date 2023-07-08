@@ -2,9 +2,7 @@ install.packages("rms")
 install.packages("rmda")
 
 library(rms)
-library(rmda)
-
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\17.Nomo")     
+library(rmda) 
 
 #Read input file
 data=read.table("merge.txt", header=T, sep="\t", check.names=F, row.names=1)
