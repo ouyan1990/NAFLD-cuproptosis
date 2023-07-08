@@ -21,7 +21,6 @@ RCircos.Set.Plot.Area()
 RCircos.Chromosome.Ideogram.Plot()
 
 #Read the gene annotation file and label the name of the gene
-
 RCircos.Gene.Label.Data=read.table("Rcircos.geneLabel.txt", header=T, sep="\t", check.names=F)
 name.col <- 4
 side <- "in"
