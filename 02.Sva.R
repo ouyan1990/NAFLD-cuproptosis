@@ -1,22 +1,19 @@
 
-
+#### Merging the enrolled four GSE datasets
 library(limma)
 library(sva)
 outFile="merge.txt"       
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\02.sva")   
-
 
 files=dir()
 files=grep("txt$", files, value=T)
 geneList=list()
 
 #Read genetic information in all txt files and save to geneList
-
 for(file in files){
   if(file==outFile){next}
-  rt=read.table(file, header=T, sep="\t", check.names=F)      #读取输入文件
-  geneNames=as.vector(rt[,1])      #提取基因名称
-  uniqGene=unique(geneNames)       #基因取unique
+  rt=read.table(file, header=T, sep="\t", check.names=F)      #Read input file
+  geneNames=as.vector(rt[,1])      #Extraction of gene name
+  uniqGene=unique(geneNames)      
   header=unlist(strsplit(file, "\\.|\\-"))
   geneList[[header[1]]]=uniqGene
 }
