@@ -4,7 +4,6 @@ install.packages("e1071")
 set.seed(12345)
 library(e1071)
 
-
 setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\14.SVM")     
 source("geoCRG12.msvmRFE.R")
 
