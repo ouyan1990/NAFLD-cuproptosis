@@ -2,7 +2,7 @@ install.packages("VennDiagram")
 
 
 library(VennDiagram)        
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\15.venn")    
+
 files=dir()     
 files=grep("txt",files,value=T)     
 geneList=list()
