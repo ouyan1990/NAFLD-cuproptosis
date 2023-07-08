@@ -13,7 +13,6 @@ library(GSEABase)
 library(GSVA)
 
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\25. ssGSEA\\25.1 pressGSEA")  
 
 #Read the expression input file and organize the input file
 rt=read.table("merge.txt", header=T, sep="\t", check.names=F)
