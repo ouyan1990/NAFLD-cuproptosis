@@ -9,8 +9,6 @@ library(tidyverse)
 library(ggplot2)
 
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\23.immuneCor")  
-
 #Read the file and organize the input file
 rt=read.table("merge.txt" , header=T, sep="\t", check.names=F)
 rt=as.matrix(rt)
@@ -58,12 +56,12 @@ ggplot(outTab, aes(Immune, Gene)) +
 	geom_tile(aes(fill = cor), colour = "grey", size = 1)+
 	scale_fill_gradient2(low = "#02C9AF", mid = "white", high = "#E41A1C") + 
 	geom_text(aes(label=text),col ="black",size = 3) +
-	theme_minimal() +    #È¥µô±³¾°
+	theme_minimal() +    #ÃˆÂ¥ÂµÃ´Â±Â³Â¾Â°
 	theme(axis.title.x=element_blank(), axis.ticks.x=element_blank(), axis.title.y=element_blank(),
-	      axis.text.x = element_text(angle = 45, hjust = 1, size = 8, face = "bold"),   #xÖá×ÖÌå
-	      axis.text.y = element_text(size = 8, face = "bold")) +       #yÖá×ÖÌå
-	labs(fill =paste0("***  p<0.001","\n", "**  p<0.01","\n", " *  p<0.05","\n", "\n","Correlation")) +   #ÉèÖÃÍ¼Àý
-	scale_x_discrete(position = "bottom") +coord_flip()     #XÖáÃû³ÆÏÔÊ¾Î»ÖÃ
+	      axis.text.x = element_text(angle = 45, hjust = 1, size = 8, face = "bold"),   #xÃ–Ã¡Ã—Ã–ÃŒÃ¥
+	      axis.text.y = element_text(size = 8, face = "bold")) +       #yÃ–Ã¡Ã—Ã–ÃŒÃ¥
+	labs(fill =paste0("***  p<0.001","\n", "**  p<0.01","\n", " *  p<0.05","\n", "\n","Correlation")) +   #Ã‰Ã¨Ã–ÃƒÃÂ¼Ã€Ã½
+	scale_x_discrete(position = "bottom") +coord_flip()     #XÃ–Ã¡ÃƒÃ»Â³Ã†ÃÃ”ÃŠÂ¾ÃŽÂ»Ã–Ãƒ
 dev.off()
 
 write.table(outTab,file = "corResult.txt", quote = F,sep = "\t")
