@@ -1,16 +1,11 @@
-
-
 install.packages("corrplot")
 install.packages("circlize")
-
 
 library(corrplot)
 library(circlize)
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\09.corrplot")     
-
 #Read input file
-data=read.table("diffGeneExp.txt"   , header=T, sep="\t", check.names=F, row.names=1)
+data=read.table("diffGeneExp.txt", header=T, sep="\t", check.names=F, row.names=1)
 
 #removing control sample
 group=gsub("(.*)\\_(.*)", "\\2", colnames(data))
