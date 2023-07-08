@@ -4,7 +4,7 @@ install.packages("VennDiagram")
 library(VennDiagram)      
 geneList=list()
 
-#读取lasso回归的基因列表文件
+#read file
 rt=read.table("diffGeneExp.txt" , header=F, sep="\t", check.names=F)
 geneNames=as.vector(rt[,1])              
 geneNames=geneNames[-1]
