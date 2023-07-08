@@ -9,8 +9,6 @@ library(pheatmap)
 library(reshape2)
 library(ggpubr)
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\18.testDiff")    
-
 #Read the presentation data file
 rt=read.table("normalize_GSE135251.txt", header=T, sep="\t", check.names=F)
 rt=as.matrix(rt)
