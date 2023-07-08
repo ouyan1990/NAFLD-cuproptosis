@@ -1,16 +1,11 @@
 install.packages("reshape2")
 install.packages("ggpubr")
 
-
-
 library(reshape2)
 library(ggpubr)
 
-inputFile="CIBERSORT-Results.txt"     
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\23.vioplot")    
 
-
-rt=read.table(inputFile, header=T, sep="\t", check.names=F, row.names=1)
+rt=read.table("CIBERSORT-Results.txt", header=T, sep="\t", check.names=F, row.names=1)
 
 con=grepl("_Control", rownames(rt), ignore.case=T)
 treat=grepl("_Treat", rownames(rt), ignore.case=T)
