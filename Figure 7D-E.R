@@ -1,6 +1,5 @@
 library(ggpubr)
 library(reshape2)
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\25. ssGSEA\\25.2 ssGSEA_vioplot")
 
 data11=read.table("ssGSEA.result.txt",header = T,sep = "\t",check.names =F)
 data11=t(data11)
