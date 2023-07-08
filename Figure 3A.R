@@ -13,9 +13,6 @@ BiocManager::install("clusterProfiler")
 BiocManager::install("enrichplot")
 BiocManager::install("ComplexHeatmap")
 
-
-
-#引用包
 library(clusterProfiler)
 library(org.Hs.eg.db)
 library(enrichplot)
@@ -25,10 +22,10 @@ library(RColorBrewer)
 library(dplyr)
 library(ComplexHeatmap)
 
-pvalueFilter=0.05     #p值过滤条件
-qvalueFilter=1        #矫正后的p值过滤条件
+pvalueFilter=0.05    
+qvalueFilter=1        
 
-#定义颜色
+#colour definition
 colorSel="qvalue"
 if(qvalueFilter>0.05){
 	colorSel="pvalue"
