@@ -9,7 +9,6 @@ library(ComplexHeatmap)
 
 pvalueFilter=0.05    
 qvalueFilter=1    
-
 colorSel="qvalue"
 if(qvalueFilter>0.05){
 	colorSel="pvalue"
