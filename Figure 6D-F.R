@@ -101,11 +101,11 @@ dev.off()
 #=========================================
 ######Video source: https://ke.biowolf.cn
 
-expFile="merge.txt"              #±í´ïÊı¾İÎÄ¼ş
-gmtFile="c5.go.symbols.gmt"     #»ùÒò¼¯ÎÄ¼ş
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\19.GSVA")     #ÉèÖÃ¹¤×÷Ä¿Â¼
+expFile="merge.txt"              #è¡¨è¾¾æ•°æ®æ–‡ä»¶
+gmtFile="c5.go.symbols.gmt"     #åŸºå› é›†æ–‡ä»¶
+setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\19.GSVA")     #è®¾ç½®å·¥ä½œç›®å½•
 
-#¶ÁÈ¡±í´ïÊäÈëÎÄ¼ş,²¢¶ÔÊäÈëÎÄ¼şÕûÀí
+#è¯»å–è¡¨è¾¾è¾“å…¥æ–‡ä»¶,å¹¶å¯¹è¾“å…¥æ–‡ä»¶æ•´ç†
 rt=read.table("merge.txt", header=T, sep="\t", check.names=F)
 rt=as.matrix(rt)
 rownames(rt)=rt[,1]
@@ -114,25 +114,25 @@ dimnames=list(rownames(exp),colnames(exp))
 data=matrix(as.numeric(as.matrix(exp)),nrow=nrow(exp),dimnames=dimnames)
 data=avereps(data)
 
-#È¥³ı¶ÔÕÕ×éµÄÑùÆ·
+#å»é™¤å¯¹ç…§ç»„çš„æ ·å“
 group=gsub("(.*)\\_(.*)", "\\2", colnames(data))
 data=data[,group=="Treat",drop=F]
 
-#¶ÁÈ¡»ùÒò¼¯ÎÄ¼ş
+#è¯»å–åŸºå› é›†æ–‡ä»¶
 geneSets=getGmt("c2.cp.kegg.symbols.gmt", geneIdType=SymbolIdentifier())
 
-#GSVA·ÖÎö
+#GSVAåˆ†æ
 ssgseaScore=gsva(data, geneSets, method='ssgsea', kcdf='Gaussian', abs.ranking=TRUE)
-#¶Ô´ò·Ö½øĞĞ½ÃÕı
+#å¯¹æ‰“åˆ†è¿›è¡ŒçŸ«æ­£
 normalize=function(x){
   return((x-min(x))/(max(x)-min(x)))}
 ssgseaScore=normalize(ssgseaScore)
 ssgseaScore=ssgseaScore[order(apply(ssgseaScore,1,sd),decreasing=T),]
 ssgseaScore=ssgseaScore[1:30,]
 
-#¸ù¾İÄ¿±ê»ùÒòµÄ±í´ïÁ¿¶ÔÑùÆ·½øĞĞ·Ö×é
-lowName=colnames(data)[data[gene,]<median(data[gene,])]       #µÍ±í´ï×éµÄÑùÆ·
-highName=colnames(data)[data[gene,]>=median(data[gene,])]     #¸ß±í´ï×éµÄÑùÆ·
+#æ ¹æ®ç›®æ ‡åŸºå› çš„è¡¨è¾¾é‡å¯¹æ ·å“è¿›è¡Œåˆ†ç»„
+lowName=colnames(data)[data[gene,]<median(data[gene,])]       #ä½è¡¨è¾¾ç»„çš„æ ·å“
+highName=colnames(data)[data[gene,]>=median(data[gene,])]     #é«˜è¡¨è¾¾ç»„çš„æ ·å“
 lowScore=ssgseaScore[,lowName]
 highScore=ssgseaScore[,highName]
 data=cbind(lowScore, highScore)
@@ -140,7 +140,7 @@ conNum=ncol(lowScore)
 treatNum=ncol(highScore)
 Type=c(rep("Control",conNum), rep("Treat",treatNum))
 
-#»ùÒò²îÒì·ÖÎö
+#åŸºå› å·®å¼‚åˆ†æ
 outTab=data.frame()
 for(i in row.names(data)){
   test=t.test(data[i,] ~ Type)
@@ -150,7 +150,7 @@ for(i in row.names(data)){
   outTab=rbind(outTab, cbind(Pathway=i, t, pvalue, Sig))
 }
 
-#»æÖÆÖù×´Í¼
+#ç»˜åˆ¶æŸ±çŠ¶å›¾
 pdf(file="barplot_GO_DLD.pdf", width=12, height=9)
 outTab$t=as.numeric(outTab$t)
 outTab$Sig=factor(outTab$Sig, levels=c("Down", "Not", "Up"))
