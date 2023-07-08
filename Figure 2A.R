@@ -15,8 +15,6 @@ library(reshape2)
 library(ggpubr)
 
 
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\03.differ")    
-
 #Read the presentation data file
 rt=read.table("merge.txt", header=T, sep="\t", check.names=F)
 rt=as.matrix(rt)
@@ -103,8 +101,6 @@ write.table(data,"data.txt",sep = "\t",quote = F)
 Type= read.table("Type.txt",header=T,sep="\t",row.names=1,check.names=F)
 
 data= read.table("data.txt",header=T,sep="\t",row.names=1,check.names=F)
-
-
 
 pdf(file="heatmap.pdf", width=9, height=5)
 pheatmap(data,
