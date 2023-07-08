@@ -11,8 +11,7 @@ library(limma)
 library(org.Hs.eg.db)
 library(clusterProfiler)
 library(enrichplot)
-         
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\15.GSEA")     
+
 
 ##### 1.GSEA analysis of NFE2L2 using KEGG database
 #Read the file and organize the input file
