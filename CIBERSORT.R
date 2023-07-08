@@ -8,7 +8,7 @@ BiocManager::install("preprocessCore")
 
 
 inputFile="merge.txt"     
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\22.CIBERSORT")     
+
 source("geoCRG11.CIBERSORT.R")      
 
 
