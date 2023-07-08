@@ -1,13 +1,10 @@
 
 install.packages("VennDiagram")
 
-
 library(VennDiagram)      
-
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\04 Venn")  
 geneList=list()
 
-#¶ÁÈ¡lasso»Ø¹éµÄ»ùÒòÁĞ±íÎÄ¼ş
+#è¯»å–lassoå›å½’çš„åŸºå› åˆ—è¡¨æ–‡ä»¶
 rt=read.table("diffGeneExp.txt" , header=F, sep="\t", check.names=F)
 geneNames=as.vector(rt[,1])              
 geneNames=geneNames[-1]
