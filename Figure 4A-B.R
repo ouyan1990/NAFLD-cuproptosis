@@ -1,10 +1,7 @@
 install.packages("glmnet")
 
-
 set.seed(12345)
-library(glmnet)     
-
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\12. lasso")      
+library(glmnet)      
 
 #Read input file
 rt=read.table("diffGeneExp.txt" , header=T, sep="\t", check.names=F, row.names=1)
