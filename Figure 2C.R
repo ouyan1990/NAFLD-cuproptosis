@@ -1,10 +1,6 @@
-
-
 install.packages("RCircos")
-
 library("RCircos")      
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\07 circle\\07.2 Rcircos")    
-
+ 
 #Initializes the circle graph
 cytoBandIdeogram=read.table("refer.txt", header=T, sep="\t", check.names=F)
 chr.exclude <- NULL
