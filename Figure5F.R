@@ -1,13 +1,8 @@
-
-
 install.packages("glmnet")
 install.packages("pROC")
 
-
 library(glmnet)
 library(pROC)
-
-setwd("E:\\bioinformation\\cuproptosis\\NAFLD1\\19.ROC")  
 
 #Read input file
 rt=read.table("normalize_GSE135251.txt" , header=T, sep="\t", check.names=F, row.names=1)
